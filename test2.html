@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.test{
+			width: 100px;
+			height: 100px;
+			border: 2px solid #000;
+		}
+	</style>
+</head>
+<body>
+	<div class="test"></div>
+	<input type="text" value="" class="inp">
+	<input type="button" class="btn">
+</body>
+</html>
+<script src="jquery-1.7.2.min.js"></script>
+<script>
+$(function(){
+//	$(".inp").blur(function(){
+//		var html_ = $(".inp").val();
+//		$(".test").html(html_);
+//	})
+	
+//	$(".inp").focus(function(){
+//		alert("进行焦点了")
+//	})
+	
+//	
+//	var val = 123;
+//	
+//	$(".inp").val(123);   // value
+//	val = $(".inp").val()
+	
+	$(".test").after(); // after before append 
+	
+	$(".test").appendTo(".div")  // appendTo
+})
+</script>
