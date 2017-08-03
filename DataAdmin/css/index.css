@@ -1,0 +1,339 @@
+@font-face {
+    font-family: 'iconfont';  /* project id 366976 */
+    src: url('//at.alicdn.com/t/font_xdbkya0as9d4pldi.eot');
+    src: url('//at.alicdn.com/t/font_xdbkya0as9d4pldi.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_xdbkya0as9d4pldi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_xdbkya0as9d4pldi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_xdbkya0as9d4pldi.svg#iconfont') format('svg');
+}
+/*登录框*/
+.login-first{
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    background-color: rgba(204,204,204,0.6);
+    top: 0;
+    left: 0;
+    z-index: 9997;
+}
+.login-child{
+    width: 400px;
+    height: 200px;
+    background-color: #ffffff;
+    border: 1px solid darkgray;
+    border-radius: 4px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top:-150px;
+    margin-left: -200px;
+    padding-top: 20px;
+    z-index: 9999;
+}
+.username{
+    width: 200px;
+    height: 24px;
+    margin: 10px auto;
+    background-color: #ffffff;
+}
+.username input{
+    width: auto;
+    height: 20px;
+}
+.password{
+    width: 200px;
+    height: 24px;
+    margin: 10px auto;
+    background-color: #ffffff;
+}
+.password input{
+    width: auto;
+    height: 20px;
+}
+.btn{
+    width: 200px;
+    height: 24px;
+    margin: 10px auto;
+    background-color: #ffffff;
+}
+.btn div{
+    width: auto;
+    height: 20px;
+    margin: 0 auto;
+    display: inline-block;
+}
+.content-left{
+    width: 20%;
+    height: 100%;
+    float: left;
+    background-color: #272634;
+}
+.content-right{
+    width: 80%;
+    height: 100%;
+    margin-left: 20%;
+    background-color: white;
+}
+.list-first,.list-second,.list-third{
+    width: 90%;
+    height: 34px;
+    padding-top: 5px;
+    float: left;
+    color: #93939a;
+    background-color: #272634;
+    overflow: hidden;
+}
+
+.content-left-child{
+    width: 90%;
+    height: 24px;
+    margin: 3px 5%;
+    float: left;
+    color: #93939a;
+    background-color: #272634;
+}
+.first-child{
+    width: 100%;
+    height: 46px;
+    margin: 0;
+    padding-top: 5px;
+}
+
+/*顶栏*/
+.left-header-left{
+    width: 80%;
+    height: 36px;
+    margin-left: 5%;
+    float: left;
+}
+.left-header-left-pic{
+    width: 36px;
+    height: 36px;
+    float: left;
+}
+.left-header-left-pic img{
+    width: 100%;
+    height: 100%;
+}
+.left-header-left-text{
+    width: auto;
+    height: 36px;
+    margin-left: 36px;
+}
+.left-header-text-top{
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    font-family: 微软雅黑;
+    color: white;
+    font-size: 16px;
+}
+.left-header-text-bottom{
+    width: auto;
+    height: 16px;
+    line-height: 16px;
+    font-family: 微软雅黑;
+    color: white;
+    font-size: 12px;
+}
+.left-header-right{
+    width: 20%;
+    height: 36px;
+    line-height: 36px;
+    margin-left: 80%;
+    font-size: 20px;
+    font-family: iconfont;
+    color: #bcbcbf;
+}
+
+
+/*下拉菜单框*/
+.content-left-child-space{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+.content-left-child-left{
+    width: 70%;
+    height: 24px;
+    float: left;
+}
+.content-left-child-left-pic{
+    width: 24px;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    float: left;
+    background-color: #1f1f2b;
+    font-family: iconfont;
+    font-size: 20px;
+    color: #838396;
+}
+.content-left-child-left-text{
+    width: auto;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 34px;
+    color: #838396;
+}
+.content-left-child-right{
+    width: 30%;
+    height: 24px;
+    line-height: 24px;
+    margin-left: 70%;
+    text-align: center;
+    color: #4d4c5a;
+}
+.content-left-child-left-alert{
+    width: 50%;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    float: left;
+}
+.content-left-child-left-arrow{
+    width: 50%;
+    height: 24px;
+    line-height: 24px;
+    text-align: center;
+    margin-left: 50%;
+    font-size: 20px;
+    color: #4d4c5a;
+}
+
+/*右栏登录框(基本上用不到了)*/
+.content-right-child{
+    background-color: white;
+    box-shadow: 1px 1px 1px 2px #f3f3f3;
+}
+.login{
+    width: 100px;
+    height: 46px;
+    text-align: center;
+    background-color: #1a879a;
+    float:right;
+}
+.login-pic{
+    width: 10%;
+    height: 46px;
+    float:right;
+}
+.admin{
+    width: auto;
+    height: 100%;
+}
+.admin-header-space{
+    width: auto;
+    height: 46px;
+    background-color: gainsboro;
+}
+.admin-header{
+    width: auto;
+    height: 70px;
+    background-color: #fbfbfb
+}
+.admin-header-top{
+    width: auto;
+    height: 16px;
+    line-height: 16px;
+    padding-top: 18px;
+    margin-left: 5%;
+    font-size: 16px;
+    font-family: 微软雅黑;
+    color: black;
+}
+.admin-header-bottom{
+    width: auto;
+    height: 12px;
+    line-height: 12px;
+    padding-top: 5px;
+    margin-left: 5%;
+    font-size: 12px;
+    font-family: 微软雅黑;
+    color: #858598;
+}
+.admin-content-bottom-button{
+    width: auto;
+
+    height: 32px;
+    margin-right: 20px;
+    float: right;
+}
+
+/*翻页按钮*/
+.admin-page-button{
+    width: auto;
+    height: 32px;
+    border:1px solid #e2e7ed;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    color: #04a9f4;
+    float: left;
+}
+.menu-footer-right-right{
+    width: auto;
+    height: 32px;
+
+}
+
+button{
+    width:  32px;
+    height: 32px;
+    float: left;
+    outline: none;
+    border: none;
+    text-align: center;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    color: #04a9f4
+}
+.button-last{
+    width: 64px;
+    height: 32px;
+    padding: 0 3px;
+    outline: none;
+    border: none;
+    text-align: center;
+    border:1px solid #e2e7ed;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    color: #04a9f4;
+}
+.button-first{
+    width: 64px;
+    height: 32px;
+    padding: 0 3px;
+    outline: none;
+    border: none;
+    text-align: center;
+    border:1px solid #e2e7ed;
+    font-family: 微软雅黑;
+    font-size: 16px;
+    color: #04a9f4;
+}
+button:hover{
+    background-color: #f62b70;
+}
+.admin-content-bottom-button-child{
+    display: inline;
+}
+
+
+/*iframe框架，菜单部分*/
+.menu{
+    width: 100%;
+    height: 100%;
+    margin-top: -4px;
+}
+
+/*字体高亮效果*/
+.highlight {
+    width: auto;
+    height: 26px;
+    line-height: 26px;
+    text-align: center;
+    padding-left: 5px;
+    border: 1px solid #f4f5f7;
+    background-color: red;
+}

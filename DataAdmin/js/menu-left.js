@@ -1,0 +1,23 @@
+/**
+ * Created by Administrator on 2017/7/29.
+ */
+$(function(){
+    $(".list-first").mouseover(function(){
+        $(this).stop(true).animate({"height":64});
+    })
+    $(".list-second").mouseover(function(){
+        $(this).stop(true).animate({"height":274});
+    })
+    $(".list-third").mouseover(function(){
+        $(this).stop(true).animate({"height":184});
+    })
+    $(".list-first").mouseleave(function(){
+        $(this).stop(true).animate({"height":34});
+    })
+    $(".list-second").mouseleave(function(){
+        $(this).stop(true).animate({"height":34});
+    })
+    $(".list-third").mouseleave(function(){
+        $(this).stop(true).animate({"height":34});
+    })
+})

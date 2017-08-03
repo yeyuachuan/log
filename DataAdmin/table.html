@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>table</title>
+    <link rel="stylesheet" type="text/css" href="css/public.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/table.css">
+</head>
+<body>
+    <div class="bigmenu">
+        <iframe class="header-content" src="header.html" frameborder="0"></iframe>
+        <div class="table-content">
+            <div class="menu-header">
+                <div class="menu-header-top">学生成绩管理</div>
+                <div class="menu-header-bottom">
+                    <div class="menu-header-bottom-left">
+                        每页<input  class="page-btn" type="text">行
+                        <input class="page-ok" type="button" value="确认">
+                    </div>
+                    <div class="menu-header-bottom-right">
+                        <div class="search-btn">
+                            <input type="button" value="搜索">
+                        </div>
+                        <div class="search-inp">
+                            <input type="text">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="menu-body">
+                <table>
+                    <thead></thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <div class="menu-footer">
+                <div class="admin-content-bottom">
+                    <div class="admin-content-bottom-content">
+                        <div class="menu-footer-left">
+                            <input  class="choice-btn" type="button" value="全部选中">
+                            <input  class="sort-btn" type="button" value="反向排序">
+                            <input  class="delete-btn" type="button" value="删除">
+                        </div>
+                    </div>
+                    <div class="menu-footer-right-right">
+                        <div class="admin-content-bottom-button">
+                            <button class="button-first">上一页</button>
+                            <span class="admin-content-bottom-button-child">
+                            </span>
+                            <button class="button-last">下一页</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+<script src="js/jquery.min.js"></script>
+<script src="js/menu-right.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/datatransport.js"></script>
