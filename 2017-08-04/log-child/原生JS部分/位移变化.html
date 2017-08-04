@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS实现位移变化的效果</title>
+    <style>
+        .square{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: fixed;
+            left: 0;
+            top: 0;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="square">
+
+    </div>
+</body>
+</html>
+<script>
+    var test = document.querySelector(".square");
+    pos={
+        x : 0,
+        y : 0,
+        s : 10
+    }
+
+    window.onkeydown =function (e){
+        switch(e.keyCode){
+            case 38:
+                pos.y -=pos.s;
+                break;
+            case 39:
+                pos.x +=pos.s;
+                break;
+            case 40:
+                pos.y +=pos.s;
+                break;
+            case 37:
+                pos.x -=pos.s;
+                break;
+        }
+        test.style.left =pos.x +"px";
+        test.style.top =pos.y +"px";
+    }
+</script>
