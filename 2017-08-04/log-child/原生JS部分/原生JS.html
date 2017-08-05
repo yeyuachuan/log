@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数组的添加和删除</title>
+</head>
+<body>
+    <div></div>
+</body>
+</html>
+<script>
+    var arr = [11,12,13,14];
+
+    arr.unshift(10);
+    console.log(arr);/*头部插入*/
+    arr.unshift(10)
+    console.log();/*头部删除*/
+    arr.push(10)
+    console.log();/*尾部插入*/
+    arr.pop(10)
+    console.log();/*尾部删除*/
+
+    arr.splice(2,2) /*从索引值为2的地方删除2位*/
+    console.log();/*指定删除*/
+
+    arr.join("/")/*在数组内每个内容中加入分隔符*/
+    console.log(arr);/*分隔符转换*/
+
+    arr.toString()/*将数组内的内容转换位字符*/
+    console.log(arr);/*字符的转换*/
+
+    arr.reverse()/*将数组内的内容（只能是字母），进行反向排序【这里有疑惑 待会百度】*/
+    console.log(arr);/*字母的排序*/
+
+    arr.sort()/*将数组内的内容（只能是字母），进行正向排序【这里有疑惑 待会百度】*/
+    console.log(arr);/*字母的排序*/
+
+
+    console.log(arr.concat([123,133,134]));/*数组的合并，注意，合并内容最好直接写在打印里边，或者要对原数组重新
+    赋值，否则直接在外面写是没用的*/
+
+    arr.slice(2,4) /*从索引值为2的地方，截取到索引值为4的地方，不包含索引值为4的值*/
+    console.log(arr);/*数组的截取*/
+</script>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JS实现位移变化的效果</title>
+    <style>
+        .square{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+        .test{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+            left: 200px;
+            top: 200px;
+        }
+    </style>
+</head>
+<body>
+    <div class="square"></div>
+    <div class="test"></div>
+</body>
+</html>
+<script>
+    var test = document.querySelector(".square");
+    pos={
+        x : 0,
+        y : 0,
+        s : 10
+    }
+
+    window.onkeydown =function (e){
+        switch(e.keyCode){
+            case 38:
+                pos.y -=pos.s;
+                break;
+            case 39:
+                pos.x +=pos.s;
+                break;
+            case 40:
+                pos.y +=pos.s;
+                break;
+            case 37:
+                pos.x -=pos.s;
+                break;
+        }
+
+
+        if(touch(pos.x,pos.y,100,100,200,200,100,100)){
+            alert("碰到了");
+        }else {
+            test.style.left =pos.x +"px";
+            test.style.top =pos.y +"px";
+        }
+        function touch(x1,y1,w1,h1,x2,y2,w2,h2) {
+            if(x1>x2+w2-pos.s || y1>y2+h2-pos.s || x2 >x1+w1-pos.s || y2 > y1+h1-pos.s){
+                return false;
+            }else {
+                return true;
+            }
+        }
+    }
+</script>
