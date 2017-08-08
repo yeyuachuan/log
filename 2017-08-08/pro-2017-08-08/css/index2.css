@@ -1,0 +1,176 @@
+body{
+    background-color:#f7f7f7 ;
+}
+.content{
+    width: 1201px;
+    height: auto;
+    padding-bottom: 324px;
+    margin: 0 auto;
+}
+.content-left{
+    width: 882px;
+    height: auto;
+    background-color: #ffffff;
+    padding: 0 18px;
+    padding-top: 10px;
+}
+.content-left-header{
+    width: 882px;
+    height: 20px;
+    padding-left: 4px;
+    margin-bottom: 18px;
+
+}
+.content-left-header-left{
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    font-size: 16px;
+    font-family: 微软雅黑;
+    color: #333333;
+    float: left;
+}
+.content-left-header-right{
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    font-family:iconfont;
+    color: #b2b2b2;
+    font-size: 20px;
+    float: right;
+}
+.content-left-header-right>span{
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    margin-left: 10px;
+    font-family:iconfont;
+    color: #b2b2b2;
+    font-size: 14px;
+}
+.content-left-name{
+    width: 100%;
+    height: 20px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+.content-left-name div{
+    width: auto;
+    height: 20px;
+    margin-right: 84px;
+    line-height: 20px;
+    font-family:微软雅黑;
+    color: #b2b2b2;
+    font-size: 14px;
+    float: left;
+}
+.content-left-namebtn{
+    width: 100%;
+    height: 36px;
+}
+.content-left-namebtn div{
+    width: 79px;
+    height: 36px;
+    margin-right: 14px;
+    float: left;
+    background-color: #f7f7f7;
+    border-radius: 6px;
+}
+.content-left-namebtn input{
+    width:79px;
+    height: 36px;
+    line-height: 14px;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #666666;
+    font-family:微软雅黑;
+    font-size: 14px;
+}
+.content-left-content>p{
+    padding: 6px 0;
+    color: #666666;
+    font-family:微软雅黑;
+    font-size: 14px;
+}
+.content-left-keyword{
+    width: 100%;
+    height: 20px;
+}
+.content-left-keyword-text{
+    width: auto;
+    padding: 6px 0;
+    height: 20px;
+    line-height: 20px;
+    float: left;
+    color: #666666;
+    font-family:微软雅黑;
+    font-size: 16px;
+}
+.content-left-keyword-btn{
+    width: 79px;
+    height: 36px;
+    margin-right: 14px;
+    position: relative;
+    margin-left: 80px;
+    background-color:#ededf9;
+    border-radius: 6px;
+}
+.content-left-keyword-btn>input{
+    width:79px;
+    height: 36px;
+    line-height: 14px;
+    text-align: center;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: #666666;
+    font-family:微软雅黑;
+    font-size: 14px;
+    position: absolute;
+}
+.content-left-sometext{
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+.content-left-sometext-top{
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    background-color: #b2b2b2;
+    padding: 5px 21px;
+    color: white;
+    font-family:微软雅黑;
+    font-size: 14px;
+}
+.content-left-sometext-text{
+    width: auto;
+    height: 20px;
+    line-height: 20px;
+    padding: 17px 21px;
+    color: black;
+    font-family:微软雅黑;
+    font-size: 14px;
+    border-bottom: 2px dashed #b2b2b2;
+}
+.content-left-sometext-text:nth-child(1){
+    color: #6663ab;
+    font-family:微软雅黑;
+    font-size: 14px;
+}
+.content-left-sometext-text:nth-child(6){
+    color: #6663ab;
+    font-family:微软雅黑;
+    font-size: 14px;
+}
+.space-index2{
+    width: 100%;
+    height: 300px;
+    background-color: white;
+}
+.content-right-new-title2{
+    font-size: 16px;
+    padding-top: 4px;
+}
