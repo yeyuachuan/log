@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>捕鱼游戏</title>
+    <style>
+        canvas{
+            background:url("./image/back.jpg")
+        }
+    </style>
+</head>
+<body>
+    <!--canvas画布的尺寸大小必须作为内联写-->
+    <canvas width="800" height="600"></canvas>
+</body>
+</html>
+<script>
+    var arr =["fish.png","gun.png","coin.png"];/*图片可以作为数组方式存入*/
+    var imgs ={};
+    function lazyLoad(arr,fun){/*fun作为一个占位函数 是作回调用*/
+        var len = arr.length;
+        var num =0;
+        for(var i= 0;i<len;i++){
+            var img  = new Image();
+            img.onload =function(){
+                num++;
+                if(num ==len){
+                    console.log(imgs);
+                    fun(imgs);/*所谓的回调 意思就是先暂时不用，等到图片完全加载完毕，这个函数才开始执行*/
+                }
+            }
+            /*document.body.appendChild(img);   测试用，向页面内插入图片*/
+            img.src =arr[i];
+            var name = arr[i].split(".")[0];
+            imgs[name] = img;
+        }
+    }
+
+
+    var can = document.querySelector('canvas');
+    var pen = can.getContext('2d'); //2d画笔
+    var i = 0;
+    var s = 2;
+
+    lazyLoad(arr, function(data){/*function作为回调函数，直到页面加载完毕，data才会传递过来，为了更保险*/
+        setInterval(function(){
+            pen.clearRect(0, 0, 800, 600);
+            i++;
+            if(i == 8){
+                i = 0;
+            }
+            pen.drawImage(data.fish, 0, i*126, 174, 126, s++, 100, 174, 126); // 叫做绘制 图像
+        }, 1000/24);
+    })
+</script>

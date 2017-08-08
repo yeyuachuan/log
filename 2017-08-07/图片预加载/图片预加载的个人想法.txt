@@ -1,0 +1,76 @@
+图片的懒加载
+
+目的：
+为了减少页面的加载时间，让用户减少等待时间。
+
+可以实现瀑布流效果，实现页面中的一些加载效果
+
+思路：
+大致就是用好img.onload ，等待图片加载完毕，才开始执行onload内的函数
+
+
+项目：捕鱼游戏
+
+要注意的点：
+
+1，canvas画布
+
+首先canvas画布想要设置大小，最好不要用外联样式设置，关于大小的问题，
+
+这是因为，使用css设置画布的大小会导致画布按比例缩放你设置的值。
+（css只是设置canvas在屏幕的显示大小，可以把画布比作一个缩放镜子，
+如果不加设置，它就照着默认大小来的。）
+
+改变canvas默认大小的方法
+
+//方法一：直接写内联样式
+<canvas width="450px" height="350px"></canvas>
+//方法二：通过js实现
+<canvas id="myCanvas"></canvas>
+...
+<script>
+    var ele = document.getElementById("myCanvas");
+    ele.width="450";//注意：没有单位
+    ele.height="300";//注意：没有单位
+    var context= ele.getContext("2d");
+    context.fillStyle="red";
+    context.fillRect(0,0,100,100);
+</script>
+
+设置画布大小后，样式会重置。
+通过canvas元素的getContext方法来获取其上下文，但是有一点需要注意的是，
+getContext是DOM对象的方法，也就是原生js方法，不能用jQuery对象直接获取。
+
+2.canvas画笔
+var can = document.querySelector('canvas');	
+var pen = can.getContext('2d'); //2d画笔
+pen.drawImage(data.fish, 0, i*126, 174, 126, s++, 100, 174, 126); // 叫做绘制 图像	
+
+darwImage一共9个参数  ( 要用的图  要用的图的起始点x，要用的图的起始点y，要用图片的宽，要用图片的高，在画布上的X值，在画布上的y值，在画布上表现的宽，在画布上表现的高。)
+
+pen.clearRect(0, 0, 800, 600);// 清空画布（清空位置的起始点X（画布内），清空位置的起始点y（画布内），宽，高）
+
+3，回调函数（明天会看看，补全这部分的问题。）
+
+目前的理解是：
+
+是一种暂时搁置型的函数，需要满足某种条件，才能继续执行的函数，如果条件不满足，可以暂时搁置。
+
+
+4.split,一种原生JS的方法
+split(":").[0]  //以冒号作为分割，产生一个数组,[0]代表前一个数组的内容
+split(".").[1]  //以冒号作为分割，产生一个数组,[1]代表前一个数组的内容
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
