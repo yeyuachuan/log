@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>捕鱼游戏制作</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        html,body{
+            width: 100%;
+            height: 100%;
+        }
+        canvas{
+            background: url("./image/back.jpg");
+        }
+    </style>
+</head>
+<body>
+    <canvas width="800" height="600"></canvas>
+</body>
+</html>
+<script src="js/touch.js"></script>
+<script>
+    var arr = ["coin.png","gun.png","fish.png","bullet.png"];/*用数组存储图片的位置*/
+    var len = arr.length;
+    var num = 0;/*表示图片加载的个数*/
+    var imgs ={};
+    function  lazyLoad(arr,fun){
+        for(var i=0;i<len;i++){
+            var img = new Image();
+            img.onload = function(){
+                num++;
+                if(num == len){/*表示图片加载完毕*/
+                    fun(imgs);
+                }
+            }
+            img.src = arr[i];
+            var name = arr[i].split(".")[0];
+            imgs[name] = img; /*img表示地址*/
+        }
+
+    }
+
+    var can = document.querySelector("canvas");
+    var pen = can.getContext('2d');//2d画笔
+    var i= 0;
+    var s = 2;
+
+    var fishs = [];/*创建数组 用来存储图片的位置*/
+    var coin =[];
+    var bullet =[];
+
+
+    var gun = {  /*json格式的名值对，用来解决图片的属性问题*/
+        y: 400,
+        x: 300,
+        s: 10
+    }
+
+
+    setInterval(function(){
+        fishs.push({
+            x:-172,
+            y:Math.random()*600,
+            i:0,
+            s:Math.random()*10,
+            r: (Math.ceil(Math.random()*40 - 20))*Math.PI/180
+        })
+    },5000);
+
+    lazyLoad(arr,function(data){/*function作为回调函数，直到页面加载完毕，data才会传递过来，为了更保险*/
+        setInterval(function(){
+            pen.clearRect(0, 0, 800, 600);
+            for(var j =0; j<fishs.length;j++){
+                if(fishs[j].x > 800){ //这个条件是用来做判定的，如果鱼的图片超出画布外，就会取消他在fishs数组中的位置。
+                    fishs.splice(j, 1);
+                }
+                fishs[j].i++;
+                if(fishs[j].i == 8){
+                    fishs[j].i = 0;
+                }
+                pen.rotate(fishs[j].r);
+                pen.drawImage(data.fish, 0, fishs[j].i*126, 174, 126, fishs[j].x += fishs[j].s, fishs[j].y, 100, 80);	// 叫做绘制 图像
+                pen.rotate(-fishs[j].r);
+            }
+
+
+            for(var k = 0; k < bullet.length; k++){
+                if(bullet[k].y < 0){//和上边的清空站位想法同理
+                    bullet.splice(k, 1);
+                }
+                pen.drawImage(data.bullet, bullet[k].x, bullet[k].y -= bullet[k].s, 24, 26);
+                for(var l =0; l<fishs.length;l++){
+                    if(touch(bullet[k].x, bullet[k].y, 24, 26,fishs[l].x,fishs[l].y,80, 60) == true){
+                        bullet.splice(k, 1);
+                        fishs.splice(l, 1);
+                    }
+                }
+
+            }
+
+            pen.drawImage(data.gun,gun.x, gun.y, 74, 68);//五个参数代表添加物，添加的X位置，添加的Y位置，图片显示在画布内的宽，图片显示在画布内的高。
+
+            //碰撞检测
+
+
+        },1000/24);
+
+        window.onkeydown= function(e){
+            switch (e.keyCode){
+                // 上右下左的顺序  不要记错了
+                case 38:
+                    break;
+                case 39:
+                    gun.x+=10;
+                    break;
+                case 40:
+                    break;
+                case 37:
+                    gun.x-=10;
+                    break;
+
+                case 32:// 空格键的keycode，当你用到空格键的时候，才会执行以下的语句，
+                    bullet.push({// 往数组中添加内容
+                        x: gun.x + 26,
+                        y: gun.y + 5,
+                        s: 5
+                    });
+                    break;
+            }
+        }
+    })
+</script>

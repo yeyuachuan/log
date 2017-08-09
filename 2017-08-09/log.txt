@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>小球下落效果模拟</title>
+</head>
+<body>
+    <canvas width="800" height="600"></canvas>
+</body>
+</html>
+<script>
+    var can = document.querySelector("canvas");
+    var pen = can.getContext('2d');
+
+    var circle ={
+        x:400,
+        y:40,
+        c:"red",
+        r:20,
+        a:3,
+        v:0,
+        vs:Math.pow(-1,Math.ceil(Math.random()*10))*5
+    }
+
+
+
+
+    setInterval(function(){
+            circle.v +=circle.a;//改变速度，模拟加速度（虽然这个公式不是太像。。）
+            circle.y +=circle.v;//改变Y轴的位置，模拟位移
+            circle.x +=circle.vs;//水平方向的位移
+
+            if(circle.y >= 560){//这里是落地判定，根据物理法则，当触底之后，会有一个转换，初始位置转换为地面，速度转换为反方向速度
+                //为了模拟动能损耗效果，
+                circle.y =560;
+                circle.v = -circle.v*0.8;//速度需要一定损耗的
+            }
+
+            pen.clearRect(0,0,800,600);
+            pen.beginPath();//开始绘画
+            pen.arc(circle.x,circle.y,circle.r,0,Math.PI*2,true);//canvas画圆，参数分别是圆心的X位置，圆心的Y位置，圆的半径，起始角度，终止角度，顺时针还是逆时针（true代表顺时针，false代表逆时针）
+            pen.fillStyle=circle.c;//填充框内的背景颜色
+            pen.strokeStyle = circle.c;//填充边框的颜色
+            pen.stroke();//执行填充边框
+            pen.fill();//执行填充背景
+            pen.closePath();//结束本次绘画，移开画笔
+    },1000/24)//注，帧率大小一般是24帧和60帧  但是这个是靠着时间刷新的帧率，一旦提高帧率，速度会变快，需要好好使用。
+</script>
