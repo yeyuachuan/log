@@ -1,0 +1,69 @@
+今天学了倒计时牌子的制作，虽然还没有完全成功，但是基本上已经成型了
+
+
+以下是几个需要注意的地方
+
+
+首先 ，从页面获取时间这个做法：
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>实时时间变化</title>
+</head>
+<body>
+    <h1></h1>
+</body>
+</html>
+<script>
+
+    setInterval(function(){
+        var dom =document.querySelector("h1");
+        var time = new Date();//记住创建时间对象的方式
+        var year = time.getFullYear();//获取年份  是用getFullYear这个方法  而不是其他的方法（如：getYear()）
+        var mouth  = time.getMonth()+1;/*月份从0开始计算的，所以要加1*/
+        var day = time.getDate();
+        var hours = time.getHours();
+        var minutes =time.getMinutes();
+        var second = time.getSeconds();
+
+        dom.innerHTML =year +"-"+ mouth +"-"+ day +" "+ hours +":"+ minutes +":"+ second;
+    },1000)
+</script>
+
+有个可以分割字符的办法：
+        var time = new Date();
+        var hour = time.getHours().toString();
+        var minutes = time.getMinutes().toString();
+        var seconds = time.getSeconds().toString();
+        if(hour.length ==1){
+            hour = "0" +hour;
+        }
+        if(minutes.length ==1){
+            minutes = "0" +hour;
+        }
+        if(seconds.length ==1){
+            seconds = "0" +seconds;
+        }
+        var timeArr = hour + minutes + seconds;
+        if((hour + minutes + seconds) !== time){
+            time = hour + minutes + seconds;
+            // 重新绘制 数字
+            // 把老的数字扔掉
+        }
+        var timeString = timeArr.split("");
+
+
+
+其他的就很简单，就是把前几天学的几个东西整合在一起，但是由于对JS的不熟悉，一时半刻还是没有做出来。
+
+
+
+
+
+
+
+
+
+
+
