@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>倒计时制作</title>
+</head>
+<body>
+    <canvas width="2000" height="600"></canvas>
+</body>
+</html>
+<script src="js/digit.js"></script>
+<script>
+    var cNum = [
+        '#FFA400',
+        '#5C0DAC',
+        '#FFAA00',
+        '#1240AB',
+        '#009999',
+        '#00CC00'
+    ]
+
+    setInterval(function(){
+        var date = 	getDate();
+        if(date !== getDate()){
+            for(var l = 0; l < ball.length; l++){
+                ball[l].status = 1;
+                ball[l].c_ =cNum[Math.ceil(Math.random()*cNum.length)];
+            }
+        }
+        date.splice(2,0,"10");//这里是往数组内添加冒号。
+        date.splice(5,0,"10");
+
+        for(var i = 0; i < date.length; i ++){//初步用圆绘制时间。
+            drawNum(digit[date[i]],20,20,10,"blue",200*i+200,100);
+        }
+        console.log(date);
+    }, 1000)
+
+    function getDate(){//时间的获取
+        var date = new Date();
+        var h = date.getHours().toString();
+        var m = date.getMinutes().toString();
+        var s = date.getSeconds().toString();
+        if(h.length < 2){//如果时间单位数的话，这个判定是用来替换的，在单个数字前加个0。
+            h = '0' + h;
+        }
+        if(m.length < 2){
+            m = '0' + m;
+        }
+        if(s.length < 2){
+            s = '0' + s;
+        }
+        return (h + m  + s).split('');//数组以空位进行分割
+    }
+
+
+
+
+    var can  = document.querySelector("canvas");
+    var pen = can.getContext("2d");
+    var ball =[];
+
+
+    function drawNum(arr,x,y,r,c,px,py){//小球的属性赋予函数，构造这个函数，市委了给每个小球赋予其属性。
+        for(var i = 0; i<arr.length;i++){
+            for(var j = 0;j<arr[i].length;j++){
+                if(arr[i][j] == 1){
+                    ball.push({
+                        x_:x*j+px,
+                        y_:y*i+py,
+                        r_: r,
+                        c_:c,
+                        a:4,
+                        v:0,
+                        vs:Math.pow(-1,Math.ceil(Math.random()*10))*7,
+                        status:0
+                    })
+                }
+            }
+        }
+    }
+
+    setInterval(function(){//小球的运动函数，所有的函数
+        pen.clearRect(0,0,2000,600);
+        for(var k = 0;k<ball.length;k++){//物理运动模拟
+            if(ball[k].status == 1){
+                ball[k].x_ +=ball[k].vs;
+                ball[k].v +=ball[k].a;
+                ball[k].y_ +=ball[k].v;
+                if(ball[k].y_ >=500){
+                    ball[k].y_ = 500;
+                    ball[k].v = -ball[k].v* 0.9;
+                }
+            }
+            drawarc(ball[k].x_,ball[k].y_,ball[k].r_,ball[k].c_);//调用了绘制函数。
+
+            if(ball[k].x_ >= 2000 ||ball[k].x_ <= 0){//超出范围，会把属性从数组内移除
+                ball.splice(k,1);
+            }
+        }
+    },1000/24)
+
+
+    function drawarc(x,y,r,c){//这个是简单的绘制调用，如果只是画一个球的做法，算是最基础的函数，可以用来作为基础函数调用，写在最外层。
+        pen.beginPath();
+        pen.fillStyle = c;
+        pen.arc(x,y,r,0,Math.PI*2);
+        pen.fill();
+        pen.closePath();
+    }
+</script>
